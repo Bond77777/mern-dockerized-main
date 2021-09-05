@@ -1,0 +1,21 @@
+{
+  "name": "mern-app",
+  "version": "1.0.1",
+  "description": "README.md",
+  "main": "app.js",
+  "author": "m1steranderson",
+  "contact": "m1steranderson@icloud.com",
+  "license": "MIT",
+  "scripts": {
+    "dev:client": "yarn start --prefix client/",
+    "dev:server": "yarn run dev --prefix server/",
+    "dev": "concurrently \"yarn run dev:client\" \"yarn run dev:server\"",
+    "build": "yarn run build --prefix client/ && yarn run build --prefix server/",
+    "start": "pm2 start build/app.js -i max",
+    "stop": "pm2 stop all",
+    "delete": "pm2 delete app"
+  },
+  "dependencies": {
+    "concurrently": "^4.1.0"
+  }
+}
